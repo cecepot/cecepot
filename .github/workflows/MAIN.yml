@@ -3,7 +3,7 @@ name: generate animation
 on:
   # run automatically every 24 hours
   schedule:
-    - cron: "0 */24 * * *" 
+    - cron: "0 */24 * * *"
   
   # allows to manually run the job at any time
   workflow_dispatch:
@@ -11,18 +11,32 @@ on:
   # run on every push on the master branch
   push:
     branches:
-    - master
-    
-  
+      - master
 
 jobs:
   generate:
-    permissions: 
+    permissions:
       contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    
+
     steps:
+      # Check out the repository
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      # Install dependencies including canvas
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      
+      - name: Install canvas dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev
+          npm install canvas
+          
       # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
       - name: generate github-contribution-grid-snake.svg
         uses: Platane/snk/svg-only@v3
@@ -31,9 +45,8 @@ jobs:
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-            dist/ocean.gif?color_snake=red purple&color_dots=#FFF5EE,#F3CFC6,#FFB6C1,#E37383,#C21E56
-          
-          
+            dist/ocean.gif?color_snake=#953553&color_dots=#FFF5EE,#F3CFC6,#FFB6C1,#E37383,#C21E56
+
       # push the content of <build_dir> to a branch
       # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
       - name: push github-contribution-grid-snake.svg to the output branch
