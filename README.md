@@ -1,4 +1,5 @@
 ## Cece here <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="25" height="25" />
+ <img src="https://res.cloudinary.com/dv9oyy79u/image/upload/v1718809517/Orange_Ebb_and_Flow_Abstract_LinkedIn_Banner_qufnm5.png"  />
 I love turning ideas into reality and having fun along the way. As a software engineer, I'm passionate about creating innovative solutions. Let's make something amazing together! 🌟
 - 🔭 I’m currently working on [Afrolive](https://github.com/cecepot/AfroLive)
 - 📫 How to reach me: cecepotakey24@gmail.com
