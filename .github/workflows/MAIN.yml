@@ -33,7 +33,6 @@ jobs:
           # these next 2 lines generate the files on a branch called "output". This keeps the main branch from cluttering up.
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
-          col_out_path: dist/ocean.gif?color_snake=#953553&color_dots=#FFF5EE,#F3CFC6,#FFB6C1,#E37383,#C21E56
      # show the status of the build. Makes it easier for debugging (if there's any issues).
       - run: git status
 
